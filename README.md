@@ -2,7 +2,7 @@
 
 As the name suggests, this is a front end to TGTalk.
 
-English | [中文（简体）][##Chinese]
+English | [中文（简体）](#chinese)
 
 ## Usage the project(CDN)
 
