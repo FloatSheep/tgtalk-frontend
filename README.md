@@ -2,6 +2,10 @@
 
 As the name suggests, this is a front end to TGTalk.
 
+This project originated from [ChenYFan](https://github.com/ChenYFan). Without him, this project would not exist.
+
+本项目起源于 [ChenYFan](https://github.com/ChenYFan)，如果没有他，这个项目不可能存在！
+
 English | [中文（简体）](#chinese)
 
 ## Usage the project(CDN)
@@ -95,3 +99,25 @@ Just like this:
   }
 </script>
 ```
+
+## 部署 API
+
+访问 [Gist](https://gist.github.com/ChenYFan/4e88490212e3e08e06006cf31140cd3f)，复制其中所有代码
+
+进入 [Cloudflare 仪表盘](https://dash.cloudflare.com)
+
+选择创建应用程序 -> 创建 Worker -> 修改名称（部署）-> 编辑代码
+
+在其中粘贴你复制的所有代码，并且修改 ChannelName 为你的频道名称，部署并访问 Worker 查看是否能正确返回内容
+
+> ！如果不能返回内容，请将 nextBefore 一行更改为 `Number((getDataFromTelegram.match(/data-before="([0-9]+)"/g) || ["0"])[0].match(/[0-9]+/g))`
+
+接着你可以为你的 Worker 绑定一个域名
+
+![image-20240323203711238](./assets/image-20240323203711238.png)
+
+![image-20240323203519290](./assets/image-20240323203519290.png)
+
+![image-20240323203802170](./assets/image-20240323203802170.png)
+
+保存，然后将你绑定的域名填入配置中的 `api` 项即可
