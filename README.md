@@ -12,7 +12,7 @@ English | [中文（简体）](#chinese)
 
 ## Usage the project(CDN)
 
-> If you have the ability, I recommend writing your own styles and limiting them to mount containers and the like to prevent style pollution.
+> If you have the ability, I recommend you write your own styles and templates, so that you can better control the display effect, in addition to this, you can better avoid style pollution (limit the style effect to the mount container)
 
 Add the style file
 
@@ -39,7 +39,7 @@ Add the init script and main script
 <button id="load-more">More</button> <!--A load more button-->
 ```
 
-## Diy your template
+## Use your template
 
 If you want to use your template, you can choose custom in the template setting
 
@@ -59,9 +59,24 @@ Just like this:
 </script>
 ```
 
+## Open Handlebars Helper
+
+These are the Handlebars Helpers open in this project, which may help you if you want to write your own templates:
+
+|     Name     |                           Way                           |                            Effect                            |
+| :----------: | :-----------------------------------------------------: | :----------------------------------------------------------: |
+| tagExtractor |                   tagExtractor(text)                    |               Traverse and return tag in text                |
+| tagConverter |            tagConverter(text, renderTagList)            |               Convert a tag to tags in tagList               |
+|   contains   |    contains(str, sub)<br />(contains text "Channel")    |                Determine if str includes sub                 |
+|     not      |    not(value)<br /> (not (contains text "Channel"))     | Returns the opposite of a given value (true -> false / false -> true), can be used with #if |
+| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |                     Overwrite Image Link                     |
+| replaceTime  |    replaceTime(timestamp)<br />{{replaceTime time}}     |               Rewrite timestamp to local time                |
+|  maskRender  |        maskRender(text)<br />{{maskRender text}}        |        Convert Telegram mask in text to plugin-heimu         |
+|     add      |                        add(a, b)                        |                   Add a to b (number type)                   |
+
 ## Chinese
 
-> 如果你有能力，我更推荐你自己编写样式，这样你能更好控制显示效果，除此之外，你还能更好的避免样式污染（将样式生效范围限定在挂载容器之内）
+> 如果你有能力，我更推荐你自己编写样式和模板，这样你能更好控制显示效果，除此之外，你还能更好的避免样式污染（将样式生效范围限定在挂载容器之内）
 
 添加样式文件
 
@@ -105,6 +120,23 @@ Just like this:
   }
 </script>
 ```
+
+## 开放的 Handlebars Helper
+
+这些是本项目中开放的 Handlebars Helper，如果你要编写自己的模板，或许会对你有所帮助：
+
+|     名字     |                        使用方法                         |                             效果                             |
+| :----------: | :-----------------------------------------------------: | :----------------------------------------------------------: |
+| tagExtractor |                   tagExtractor(text)                    |                   遍历并返回 text 中的 tag                   |
+| tagConverter |            tagConverter(text, renderTagList)            |               转换 a 标签为 tagList 中的 tags                |
+|   contains   |    contains(str, sub)<br />(contains text "Channel")    |                   判断 str 中是否包括 sub                    |
+|     not      |    not(value)<br /> (not (contains text "Channel"))     | 返回给定值的相反值（true -> false / false -> true），可与 #if 连用 |
+| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |                         覆写图片链接                         |
+| replaceTime  |    replaceTime(timestamp)<br />{{replaceTime time}}     |                     重写时间戳为本地时间                     |
+|  maskRender  |        maskRender(text)<br />{{maskRender text}}        |          转换文字中的 Telegram 遮罩为 plugin-heimu           |
+|     add      |                        add(a, b)                        |                  将 a 与 b 相加（数字类型）                  |
+
+
 
 ## 部署 API
 

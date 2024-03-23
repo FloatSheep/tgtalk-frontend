@@ -128,7 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const apiEndpoint = G_CONFIG.api || "";
   const refContainer = document.getElementById(G_CONFIG.ref);
   if (G_CONFIG.template === "custom") {
-    templateSource = document.getElementById("template").innerHTML;
+    try {
+      templateSource = document.getElementById("template").innerHTML;
+    } catch (err) {
+      document.getElementById("load-more").remove();
+    }
   } else {
     templateSource = getDefaultTemplate();
   }
