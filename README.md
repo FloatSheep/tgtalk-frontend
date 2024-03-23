@@ -27,6 +27,8 @@ Add the init script and main script
   };
 </script>
 <script src="https://registry.npmmirror.com/@floatsheep/tg-talker/latest/files/dist/index.js"></script>
+<div id="g-container"></div> <!--You can choose the id-->
+<button id="load-more">More</button> <!--A load more button-->
 ```
 
 ## Diy your template
@@ -65,13 +67,15 @@ Just like this:
 ```html
 <script>
   window.G_CONFIG = {
-    api: "https://tgtalk.api.eurekac.cn", // A api that you deployed
-    ref: "g-container", // A container that you want to mount it
-    template: "default", // Choose "custom" or "default"
-    zoom: true, // Enable Medium-Zoom
+    api: "https://tgtalk.api.eurekac.cn", // 你部署的 API
+    ref: "g-container", // 你想要挂载的容器
+    template: "default", // 选择 "custom" 或者 "default"
+    zoom: true, // 启用 Medium-Zoom（点击图片放大）
   };
 </script>
 <script src="https://registry.npmmirror.com/@floatsheep/tg-talker/latest/files/dist/index.js"></script>
+<div id="g-container"></div> <!--你可以更改ID-->
+<button id="load-more">加载更多</button> <!--加载更多按钮-->
 ```
 
 ## 制定你的模板
