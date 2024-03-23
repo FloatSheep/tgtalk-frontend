@@ -43,7 +43,12 @@ function loadDataAndRender(
         console.log(startBeforeGlobal);
       }
       if (G_CONFIG.zoom) {
-        mediumZoom("[data-zoomable]");
+        document.querySelectorAll("[data-zoomable]").forEach((element) => {
+          if (element.getAttribute("data-zoomed") !== "true") {
+            mediumZoom(element);
+            element.setAttribute("data-zoomed", "true");
+          }
+        });
       }
     })
     .catch((error) => {
@@ -102,7 +107,12 @@ function loadMore(apiEndpoint, refContainer) {
         }
       });
       if (G_CONFIG.zoom && mediumZoom) {
-        mediumZoom("[data-zoomable]");
+        document.querySelectorAll("[data-zoomable]").forEach((element) => {
+          if (element.getAttribute("data-zoomed") !== "true") {
+            mediumZoom(element);
+            element.setAttribute("data-zoomed", "true");
+          }
+        });
       }
       loadMoreButton.disabled = false;
     })
