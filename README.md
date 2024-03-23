@@ -6,6 +6,8 @@ This project originated from [ChenYFan](https://github.com/ChenYFan). Without hi
 
 本项目起源于 [ChenYFan](https://github.com/ChenYFan)，如果没有他，这个项目不可能存在！
 
+本项目由键盘和 AI 自动生成，本人没有义务对该项目引发的任何争议负责任
+
 English | [中文（简体）](#chinese)
 
 ## Usage the project(CDN)
