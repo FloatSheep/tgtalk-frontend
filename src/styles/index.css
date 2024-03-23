@@ -149,3 +149,34 @@
   padding: 0.4rem;
   box-shadow: 0 0;
 }
+
+.plugin-heimu {
+  color: #000;
+  background-color: #000;
+  transition: .1s;
+  padding: .2s;
+  border-radius: 10.1%;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+  -ms-transition: .1s;
+  -o-transition: .1s;
+  -webkit-border-radius: 10.1%;
+  -moz-border-radius: 10.1%;
+  -ms-border-radius: 10.1%;
+  -o-border-radius: 10.1%
+}
+
+.plugin-heimu:hover {
+  color: #fff;
+  border-radius: 10.1%;
+  text-shadow: 0 0 5px #fff,0 0 5px #fff;
+  transition: .1s;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+  -ms-transition: .1s;
+  -o-transition: .1s;
+  -webkit-border-radius: 10.1%;
+  -moz-border-radius: 10.1%;
+  -ms-border-radius: 10.1%;
+  -o-border-radius: 10.1%
+}
