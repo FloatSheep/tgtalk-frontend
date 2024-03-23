@@ -1,6 +1,6 @@
 {
   "name": "@floatsheep/tg-talker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A talk based on Telegram Channel",
   "main": "src/index.js",
   "scripts": {
