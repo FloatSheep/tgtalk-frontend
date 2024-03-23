@@ -10,6 +10,8 @@ English | [中文（简体）](#chinese)
 
 ## Usage the project(CDN)
 
+> If you have the ability, I recommend writing your own styles and limiting them to mount containers and the like to prevent style pollution.
+
 Add the style file
 
 ```html
@@ -56,6 +58,8 @@ Just like this:
 ```
 
 ## Chinese
+
+> 如果你有能力，我更推荐你自己编写样式，这样你能更好控制显示效果，除此之外，你还能更好的避免样式污染（将样式生效范围限定在挂载容器之内）
 
 添加样式文件
 
