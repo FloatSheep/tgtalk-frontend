@@ -1,4 +1,5 @@
 import Handlebars from "handlebars";
+import { marked } from "marked";
 
 export function tagExtractor(text) {
   const regex = /<a[^>]*>#(.*?)<\/a>/g;
@@ -43,7 +44,9 @@ export function not(value) {
 }
 
 export function replaceImage(originalLink) {
-  const apiUrl = window.G_CONFIG.api.endsWith("/") ? window.G_CONFIG.api : window.G_CONFIG.api + "/";
+  const apiUrl = window.G_CONFIG.api.endsWith("/")
+    ? window.G_CONFIG.api
+    : window.G_CONFIG.api + "/";
   var newLink = apiUrl + `?proxy=${originalLink}`;
   return newLink;
 }
@@ -70,4 +73,41 @@ export function maskRender(text) {
 
 export function add(a, b) {
   return Number(a) + Number(b);
+}
+
+export function convertAnchorsToImages(html) {
+  const htmlImageRegex = /(?:<br\/>)*<a href="([^"]+)"[^>]*>\1<\/a>/g;
+  return html.replace(htmlImageRegex, (match, href) => `![](${href})`);
+}
+
+const renderer = new marked.Renderer();
+
+renderer.image = function (href, title, text) {
+  const imageClass = "image";
+  return `<img src="${href}" alt="${text}" class="${imageClass}"${
+    title ? ` title="${title}"` : ""
+  }>`;
+};
+
+export function mkRender(text) {
+  const markdown = convertAnchorsToImages(text);
+  return marked(markdown, { renderer });
+}
+
+export function compoundRender(text) {
+  var result = maskRender(text);
+  // 转义HTML实体
+  result = String(result)
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#33;/g, "!");
+  var target = mkRender(result);
+  target = target.replace(
+    /<img src="!\[\]\((.*?)\)" alt="(.*?)" class="image">/g,
+    '<div class="image"><img src="$1" alt="$2" data-zoomable></div>'
+  );
+  return target;
 }

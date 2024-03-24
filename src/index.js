@@ -150,7 +150,7 @@ function getDefaultTemplate() {
     {{#each ChannelMessageData}} {{#if (not (contains text "Channel"))}}
     <div class="message">
       <div class="info-header"><p class="Tag"><span class="pageTag"><a class="point">#{{ originalKey }}</a></span> <span class="views">Views: {{views}}</span></p></div>
-      <p class="text">{{maskRender text}}</p>
+      <p class="text">{{{compoundRender text}}}</p>
       {{#if image}}
       <div class="image">
         {{#each image}} {{#unless (contains this "emoji")}}
