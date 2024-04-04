@@ -1,11 +1,12 @@
 {
   "name": "@floatsheep/tg-talker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A talk based on Telegram Channel",
   "main": "dist/index.js",
   "scripts": {
     "dev": "pnpm webpack serve",
-    "build": "pnpm webpack"
+    "build": "pnpm webpack",
+    "purge": "cnpm sync @floatsheep/tg-talker"
   },
   "author": "FloatSheep",
   "license": "MIT",
