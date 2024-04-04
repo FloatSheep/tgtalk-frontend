@@ -64,10 +64,6 @@
   -o-border-radius: 0.8rem;
 }
 
-.text {
-  font-size: 16px;
-}
-
 .image {
   display: flex;
   flex-wrap: wrap;

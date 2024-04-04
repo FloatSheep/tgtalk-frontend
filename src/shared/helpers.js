@@ -22,7 +22,6 @@ export function tagChina(text, renderTagList) {
   let result = "";
   if (renderTagList && tags.length > 0) {
     // 只有当 renderTagList 为真且 tags 不为空时，才渲染 tagList
-    result += `<div class="tagList">`; // 添加 div 元素
     for (let tag of tags) {
       if (tag === "SFCN") {
         result += ``;
@@ -30,7 +29,6 @@ export function tagChina(text, renderTagList) {
         result += `<span class="tags">#${tag}</span>`;
       }
     }
-    result += `</div>`; // 添加 div 元素
   }
   return new Handlebars.SafeString(result);
 }
