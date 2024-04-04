@@ -10,6 +10,13 @@ This project originated from [ChenYFan](https://github.com/ChenYFan). Without hi
 
 English | [中文（简体）](#chinese)
 
+> TGTalk supports Markdown rendering based on `marked.js`, but since Telegram automatically recognizes links (adding hyperlinks, escaping, etc.), the effect is not good
+>
+> You can now use it normally! []()`syntax and`[]()`syntax
+> However, you can insert HTML tags into the talk, and it will be rendered normally by TGTalk
+>
+> However, due to Telegram's ability to automatically identify links, you will not be able to use tags such as video and audio that require data from the outside
+
 ## Usage the project(CDN)
 
 > If you have the ability, I recommend you write your own styles and templates, so that you can better control the display effect, in addition to this, you can better avoid style pollution (limit the style effect to the mount container)
@@ -75,6 +82,14 @@ These are the Handlebars Helpers open in this project, which may help you if you
 |     add      |                        add(a, b)                        |                   Add a to b (number type)                   |
 
 ## Chinese
+
+> TGTalk 支持基于 `marked.js` 的 Markdown 渲染，但由于 Telegram 会自动识别链接（添加超链接、转义等），效果并不好
+>
+> 目前，你可以正常使用 `![]()` 语法 和 `[]()` 语法
+>
+> 但，你可以在说说中插入 HTML 标签，它将会被 TGTalk 正常渲染
+>
+> 尽管如此，受限于 Telegram 自动识别链接的功能，你将无法正常使用 video 和 audio 等需要从外部获取数据的标签
 
 > 如果你有能力，我更推荐你自己编写样式和模板，这样你能更好控制显示效果，除此之外，你还能更好的避免样式污染（将样式生效范围限定在挂载容器之内）
 
