@@ -2,7 +2,7 @@
   "name": "@floatsheep/tg-talker",
   "version": "1.0.4",
   "description": "A talk based on Telegram Channel",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "pnpm webpack serve",
     "build": "pnpm webpack"
