@@ -6,14 +6,17 @@ This project originated from [ChenYFan](https://github.com/ChenYFan). Without hi
 
 本项目起源于 [ChenYFan](https://github.com/ChenYFan)，如果没有他，这个项目不可能存在！
 
+This item was generated automatically by the keyboard and AI, and I am not obligated to be responsible for any disputes arising from this item
+
 本项目由键盘和 AI 自动生成，本人没有义务对该项目引发的任何争议负责任
 
 English | [中文（简体）](#chinese)
 
 > TGTalk supports Markdown rendering based on `marked.js`, but since Telegram automatically recognizes links (adding hyperlinks, escaping, etc.), the effect is not good
 >
-> You can now use it normally! []()`syntax and`[]()`syntax
-> However, you can insert HTML tags into the talk, and it will be rendered normally by TGTalk
+> You can now use it normally! `![]()` syntax and`[]()` syntax
+>
+> However, you can insert HTML tags into the talk (which may lead to XSS issues, but TGTalk-FrontEnd derives its content from trusted user input, so TGTalk-FrontEnd will invert the `marked.js`-processed HTML tags), and it will be rendered properly by TGTalk!
 >
 > However, due to Telegram's ability to automatically identify links, you will not be able to use tags such as video and audio that require data from the outside
 
@@ -35,7 +38,7 @@ Add the init script and main script
 ```html
 <script>
   window.G_CONFIG = {
-    api: "https://tgtalk.api.eurekac.cn", // A api that you deployed
+    api: "", // A api that you deployed
     ref: "g-container", // A container that you want to mount it
     template: "default", // Choose "custom" or "default"
     zoom: true, // Enable Medium-Zoom
@@ -76,7 +79,7 @@ These are the Handlebars Helpers open in this project, which may help you if you
 | tagConverter |            tagConverter(text, renderTagList)            |               Convert a tag to tags in tagList               |
 |   contains   |    contains(str, sub)<br />(contains text "Channel")    |                Determine if str includes sub                 |
 |     not      |    not(value)<br /> (not (contains text "Channel"))     | Returns the opposite of a given value (true -> false / false -> true), can be used with #if |
-| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |                     Overwrite Image Link                     |
+| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |           Overwrite Image Link(Telegram CDN only)            |
 | replaceTime  |    replaceTime(timestamp)<br />{{replaceTime time}}     |               Rewrite timestamp to local time                |
 |  maskRender  |        maskRender(text)<br />{{maskRender text}}        |        Convert Telegram mask in text to plugin-heimu         |
 |     add      |                        add(a, b)                        |                   Add a to b (number type)                   |
@@ -87,9 +90,9 @@ These are the Handlebars Helpers open in this project, which may help you if you
 >
 > 目前，你可以正常使用 `![]()` 语法 和 `[]()` 语法
 >
-> 但，你可以在说说中插入 HTML 标签，它将会被 TGTalk 正常渲染
+> 但，你可以在说说中插入 HTML 标签（由此可能引申出 XSS 问题，但 TGTalk-FrontEnd 的内容来源于可信用户输入，因此 TGTalk-FrontEnd 会将 `marked.js` 处理后的 HTML 标签反转义），它将会被 TGTalk 正常渲染
 >
-> 尽管如此，受限于 Telegram 自动识别链接的功能，你将无法正常使用 video 和 audio 等需要从外部获取数据的标签
+> 尽管如此，受限于 Telegram 自动识别链接的功能，**你将无法正常使用 video 和 audio 等需要从外部获取数据的标签**
 
 > 如果你有能力，我更推荐你自己编写样式和模板，这样你能更好控制显示效果，除此之外，你还能更好的避免样式污染（将样式生效范围限定在挂载容器之内）
 
@@ -107,7 +110,7 @@ These are the Handlebars Helpers open in this project, which may help you if you
 ```html
 <script>
   window.G_CONFIG = {
-    api: "https://tgtalk.api.eurekac.cn", // 你部署的 API
+    api: "", // 你部署的 API
     ref: "g-container", // 你想要挂载的容器
     template: "default", // 选择 "custom" 或者 "default"
     zoom: true, // 启用 Medium-Zoom（点击图片放大）
@@ -144,9 +147,9 @@ These are the Handlebars Helpers open in this project, which may help you if you
 | :----------: | :-----------------------------------------------------: | :----------------------------------------------------------: |
 | tagExtractor |                   tagExtractor(text)                    |                   遍历并返回 text 中的 tag                   |
 | tagConverter |            tagConverter(text, renderTagList)            |               转换 a 标签为 tagList 中的 tags                |
-|   contains   |    contains(str, sub)<br />(contains text "Channel")    |                   判断 str 中是否包括 sub                    |
+|   contains   |    contains(str, sub)<br />(contains text "Channel")    |        判断 某个字符串(str)中是否包括 特定字符串(sub)        |
 |     not      |    not(value)<br /> (not (contains text "Channel"))     | 返回给定值的相反值（true -> false / false -> true），可与 #if 连用 |
-| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |                         覆写图片链接                         |
+| replaceImage | replaceImage(originalLink)<br />{{ replaceImage this }} |            覆写图片链接（仅适用于 Telegram CDN）             |
 | replaceTime  |    replaceTime(timestamp)<br />{{replaceTime time}}     |                     重写时间戳为本地时间                     |
 |  maskRender  |        maskRender(text)<br />{{maskRender text}}        |          转换文字中的 Telegram 遮罩为 plugin-heimu           |
 |     add      |                        add(a, b)                        |                  将 a 与 b 相加（数字类型）                  |
